@@ -16,4 +16,3 @@ class Configuration(BaseSettings):
     LLM:ClassVar[HuggingFaceEndpoint]
 config=Configuration()
 Configuration.LLM=HuggingFaceEndpoint(repo_id='mistralai/Mixtral-8x7B-Instruct-v0.1', huggingfacehub_api_token=config.TOKEN, temperature=0.1)
-

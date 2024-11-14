@@ -31,4 +31,4 @@ class Clasificador():
         result=chain.invoke({"question":title})
         # print(f"result: {result}")
         return result
-
+    
