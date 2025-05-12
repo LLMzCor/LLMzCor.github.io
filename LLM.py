@@ -25,14 +25,14 @@ class Clasificador():
         resultado=re.findall(r'\[(.*?)\]', texto)
         return list(resultado)[0].split(",",1)
 
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result_str=chain.invoke({"question":title})
+        result_str=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
 
         result= self._postprocesamiento(result_str)
@@ -54,14 +54,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
 
@@ -78,14 +78,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
 
@@ -102,14 +102,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
     
@@ -126,14 +126,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
 
@@ -150,14 +150,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
 class Clasificador_():
@@ -173,14 +173,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
 class Clasificador_():
@@ -196,14 +196,14 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
 class Clasificador_():
@@ -219,13 +219,13 @@ class Clasificador_():
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
     
-    def clasificacion(self, title):
+    def clasificacion(self, Abstract):
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
             | self.model
             | self.output_parser
         )
-        result=chain.invoke({"question":title})
+        result=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
         return result
