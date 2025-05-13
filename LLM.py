@@ -2,7 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import re
-
+import ast
 
 from config import config
 #------------------------------------------
@@ -21,11 +21,26 @@ class Clasificador():
                                                 4.  None: The paper does not discuss Multiresistance bacteria stains report, neither new treatments nor immunization.
                                                 Your response should be formated as a list of 2 elements, stating the category number or categories selected followed by a concise explanation that supports your categorization.
                                                 """)
+    # def _postprocesamiento(self, texto):
+    #     print("entro al postprocesamiento")
+    #     resultado=re.findall(r'\[(.*?)\]', texto)
+    #     print(resultado)
+    #     return list(resultado)[0].split(",",1)
+    import ast
+
     def _postprocesamiento(self, texto):
-        resultado=re.findall(r'\[(.*?)\]', texto)
-        return list(resultado)[0].split(",",1)
+        print("entro al postprocesamiento")
+        try:
+            start = texto.index('[')
+            lista = ast.literal_eval(texto[start:]) 
+            print(lista)
+            return lista 
+        except Exception as e:
+            print(f"Error en _postprocesamiento: {e}")
+            return ["", ""]
 
     def clasificacion(self, Abstract):
+        print("entro al clasificador")
         chain=(
             {"question": RunnablePassthrough()}
             | self.prompt
@@ -34,6 +49,8 @@ class Clasificador():
         )
         result_str=chain.invoke({"question":Abstract})
         # print(f"result: {result}")
+        print("ya paso el chain")
+        print(result_str)
 
         result= self._postprocesamiento(result_str)
 
